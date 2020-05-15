@@ -104,7 +104,6 @@ NEW_STRAT_1_ATTACKER2 = ReducedMatrix(DOM_STRAT_1_ATTACKER2, RESOURCE_MATRIX_ARR
 REDUCED_RESOURCE_MATRIX_ARRAY_1 = {NEW_STRAT_1_ATTACKER1 NEW_STRAT_1_ATTACKER2 NEW_STRAT_1_DEFENDER};
 
 % EXECUTE THE GAME CALCULATION
-% [nash_1,payoff_1,iter_1,err_1] = findMixedStrategyEq(num_cyber_nodes,CONNECTIONS,COST,threshold,REDUCED_RESOURCE_MATRIX_ARRAY_1,30);
 [BEST_RESOURCE_MATRIX_1] = findBestRspStratSet(num_cyber_nodes,CONNECTIONS,COST,threshold,REDUCED_RESOURCE_MATRIX_ARRAY_1,30);
 [nash_1,payoff_1,iter_1,err_1] = findEquilibrium(num_cyber_nodes,CONNECTIONS,COST,threshold,BEST_RESOURCE_MATRIX_1);
 
@@ -133,7 +132,6 @@ NEW_STRAT_2_ATTACKER2 = ReducedMatrix(DOM_STRAT_2_ATTACKER2, RESOURCE_MATRIX_ARR
 REDUCED_RESOURCE_MATRIX_ARRAY_2 = {NEW_STRAT_2_ATTACKER1 NEW_STRAT_2_ATTACKER2 NEW_STRAT_2_DEFENDER};
 
 % EXECUTE THE GAME CALCULATION
-% [nash_2,payoff_2,iter_2,err_2] = findMixedStrategyEq(num_cyber_nodes,CONNECTIONS,COST,threshold,REDUCED_RESOURCE_MATRIX_ARRAY_2,30);
 [BEST_RESOURCE_MATRIX_2] = findBestRspStratSet(num_cyber_nodes,CONNECTIONS,COST,threshold,REDUCED_RESOURCE_MATRIX_ARRAY_2,30);
 [nash_2,payoff_2,iter_2,err_2] = findEquilibrium(num_cyber_nodes,CONNECTIONS,COST,threshold,BEST_RESOURCE_MATRIX_2);
 
@@ -162,7 +160,6 @@ NEW_STRAT_3_ATTACKER2 = ReducedMatrix(DOM_STRAT_3_ATTACKER2, RESOURCE_MATRIX_ARR
 REDUCED_RESOURCE_MATRIX_ARRAY_3 = {NEW_STRAT_3_ATTACKER1 NEW_STRAT_3_ATTACKER2 NEW_STRAT_3_DEFENDER};
 
 % EXECUTE THE GAME CALCULATION
-% [nash_3,payoff_3,iter_3,err_3] = findMixedStrategyEq(num_cyber_nodes,CONNECTIONS,COST,threshold,REDUCED_RESOURCE_MATRIX_ARRAY_3,30);
 [BEST_RESOURCE_MATRIX_3] = findBestRspStratSet(num_cyber_nodes,CONNECTIONS,COST,threshold,REDUCED_RESOURCE_MATRIX_ARRAY_3,30);
 [nash_3,payoff_3,iter_3,err_3] = findEquilibrium(num_cyber_nodes,CONNECTIONS,COST,threshold,BEST_RESOURCE_MATRIX_3);
 
@@ -208,8 +205,8 @@ figure3 = figure;
     
     fig3_bar2 = bar(fig3_x_axis,[payoff_1(1,:); payoff_2(1,:); payoff_3(1,:)]);
     legend({'Attacker 1','Attacker 2','Defender'},'Location','bestoutside');
-    title('Max Payoff for Mixed Strategy Sets @ Nash Equilibrium');
-    ylabel('Max Payoff for Varied Player');
+    title('Payoff at Nash Equilibrium');
+    ylabel('Payoff');
     fig3_bar2_y_axis_min = 0;
     fig3_bar2_y_axis_max = max(unique([payoff_1; payoff_2; payoff_3])) * 1.1;
     ylim([fig3_bar2_y_axis_min fig3_bar2_y_axis_max]);
